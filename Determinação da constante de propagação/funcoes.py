@@ -54,7 +54,7 @@ def funcao_Gamma(Z):
 
 # Funções de Bessel
 
-def J(t, alpha, M=50):
+def J(t, alpha, M=75):
     if not (np.isscalar(alpha)):
         raise ValueError('\u03B1 deve ser um escalar')
     if (np.isclose(alpha, np.round(alpha), rtol=0, atol=1e-12)) and (alpha < 0):
@@ -80,7 +80,7 @@ def J(t, alpha, M=50):
 
     return soma
 
-def I(t, alpha, M=50):
+def I(t, alpha, M=75):
     if not (np.isscalar(alpha)):
         raise ValueError('\u03B1 deve ser um escalar')
     if (np.isclose(alpha, np.round(alpha), rtol=0, atol=1e-12)) and (alpha < 0):
@@ -105,7 +105,7 @@ def I(t, alpha, M=50):
 
     return soma
 
-def Y(t, alpha, M = 50):
+def Y(t, alpha, M = 75):
     if not (np.isscalar(alpha)):
         raise ValueError('\u03B1 deve ser um escalar')
 
@@ -118,7 +118,7 @@ def Y(t, alpha, M = 50):
     den = np.sin(alpha*pi)
     return num / den
 
-def K(t, alpha, M = 50):
+def K(t, alpha, M = 75):
     if not (np.isscalar(alpha)):
         raise ValueError('\u03B1 deve ser um escalar')
     if alpha < 0:
@@ -135,22 +135,22 @@ def K(t, alpha, M = 50):
 
 # Derivadas das funções de Bessel
 
-def DJ(t, alpha, M = 50):
+def DJ(t, alpha, M = 75):
     Ja_m1 = J(t, alpha-1, M)
     Ja_p1 = J(t, alpha+1, M)
     return 0.5*(Ja_m1-Ja_p1)
 
-def DI(t, alpha, M = 50):
+def DI(t, alpha, M = 75):
     Ia_m1 = I(t, alpha-1, M)
     Ia_p1 = I(t, alpha+1, M)
     return 0.5*(Ia_m1+Ia_p1)
 
-def DY(t, alpha, M = 50):
+def DY(t, alpha, M = 75):
     Ya_m1 = Y(t, alpha-1, M)
     Ya_p1 = Y(t, alpha+1, M)
     return 0.5*(Ya_m1-Ya_p1)
 
-def DK(t, alpha, M = 50):
+def DK(t, alpha, M = 75):
     Ka_m1 = K(t, alpha-1, M)
     Ka_p1 = K(t, alpha+1, M)
     return -0.5*(Ka_m1+Ka_p1)
